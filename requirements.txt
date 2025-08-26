@@ -1,0 +1,72 @@
+
+要求：
+1.设计高端一些，不要过于简单
+2.包含多个图表，多种类型的图表比如histogram、散点图等等高端图，要包含表头
+3.每一次尝试请新建一个文件，不要在同一个文件里修改，方便我查看
+
+1. Briefly introduce the dataset
+ • 说明数据集来源（例如：宠物收容所/课程提供的模拟数据）。
+ • 简要描述主要变量（比如：Age, Vaccinated, Gender, AdoptionLikelihood）。
+ • 强调数据分析目标：找出哪些因素会影响宠物被领养的可能性。
+
+（slides 用：一页图表，展示变量分布图或表格）
+
+⸻
+
+2. Data cleaning
+ • 检查 缺失值（有没有 NaN 或空白）。
+ • 检查 异常值（比如负数年龄、错误的 Vaccinated 编码）。
+ • 如果需要，做 变量编码：
+ • 比如 Vaccinated 从 Yes/No → 1/0
+ • Gender 从 Male/Female → 0/1
+ • 确保 AdoptionLikelihood 是一个二元变量（1=被领养，0=未被领养）。
+
+（代码部分：df.isnull().sum()，df.describe() 等）
+
+⸻
+
+3. Exploratory data analysis (EDA)
+
+用图表和统计方法探索：
+ • 整体情况：
+ • 平均年龄、总领养率
+ • 单因素对比：
+ • 打疫苗 vs 没打疫苗 → 领养率
+ • 年龄高/低（用平均数或中位数分组） → 领养率
+ • 性别差异
+ • 多因素交互：
+ • 打疫苗 + 年轻 → 领养率更高？
+ • 不同性别 + 年龄 → 领养率差异
+
+（slides 用：2–3 张直方图/柱状图，展示差异）
+
+⸻
+
+4. Show any interesting findings & practical insights
+
+在 slides 里总结结论：
+ • 发现：例如
+ • 打疫苗的宠物领养率比没打的高 30%
+ • 年轻宠物更容易被领养
+ • 母宠物在小龄阶段更快被领养
+ • 实用性：
+ • 收容所可以优先给年轻宠物打疫苗，提高领养率
+ • 广告推广时可以重点介绍 “已打疫苗、年龄较小的宠物”
+
+（slides 用：每条发现 + 一个图表 + 一个 practical 建议）
+
+⸻
+
+5. Building a dashboard (via Plotly Dash)
+
+你可以做一个简单的交互式 dashboard，内容：
+ • 左边：过滤条件（dropdown/checkbox）
+ • 是否打疫苗
+ • 年龄区间（滑动条）
+ • 性别
+ • 右边：显示图表
+ • Adoption Likelihood 的柱状图 / 饼图
+ • 不同条件下的领养率变化
+ • 底部：显示一些 summary 数值（平均年龄、总数、被领养率）。
+
+演示时只要打开 dashboard，点一下不同条件，让观众看到变化就行。
